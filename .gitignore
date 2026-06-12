@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+data/drops/
+warehouse/
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dashboard/index.html
+.env
