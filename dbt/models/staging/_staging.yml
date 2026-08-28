@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_leads
-    description: Typed, deduped leads. PII (name/phone) stops here — marts never expose it.
+    description: Typed, deduped leads. PII (name/phone) stops here; marts never expose it.
     columns:
       - name: lead_id
         tests: [unique, not_null]

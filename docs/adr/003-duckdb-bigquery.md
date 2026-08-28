@@ -23,4 +23,4 @@ The BigQuery path is documented rather than wired:
 DuckDB 1.5.x mis-executes CTAS when a QUALIFY window and a
 `try_cast(replace(...))` projection share one SELECT (it eagerly casts the
 raw string). `stg_ad_spend` therefore dedupes on raw columns first, then
-types — equivalent at this grain. See the model header comment.
+types instead, equivalent at this grain. See the model header comment.

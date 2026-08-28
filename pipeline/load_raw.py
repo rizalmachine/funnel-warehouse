@@ -1,13 +1,13 @@
 """Load messy studio CSVs into the DuckDB `raw` schema.
 
 Boundary contract (see docs/adr/001): the loader does STRUCTURAL
-normalization only — header aliases and lineage columns. All semantic
+normalization only: header aliases and lineage columns. All semantic
 cleaning (types, dedupe, date parsing, money parsing) happens in dbt staging,
 where it is versioned and tested.
 
 Header drift is resolved per-file: the header row is read in Python and
 mapped through HEADER_ALIASES, then the body is bulk-loaded natively by
-DuckDB (read_csv with explicit names) — fast and type-agnostic (all VARCHAR).
+DuckDB (read_csv with explicit names), fast and type-agnostic (all VARCHAR).
 
 Run: python pipeline/load_raw.py [--db warehouse/funnel.duckdb]
 """
@@ -54,7 +54,7 @@ def normalized_header(path: Path) -> list[str]:
     for h in raw_header:
         key = h.strip().lower()
         if key not in HEADER_ALIASES:
-            raise ValueError(f"{path.name}: unmapped header {h!r} — "
+            raise ValueError(f"{path.name}: unmapped header {h!r}, "
                              f"add it to HEADER_ALIASES or fix the source")
         cols.append(HEADER_ALIASES[key])
     return cols
@@ -63,7 +63,7 @@ def normalized_header(path: Path) -> list[str]:
 def load_source(con: duckdb.DuckDBPyConnection, source: str, loaded_at: str) -> int:
     files = sorted((ROOT / "data" / "drops" / source).glob("*.csv"))
     if not files:
-        raise FileNotFoundError(f"no CSVs for {source} — run the generator first")
+        raise FileNotFoundError(f"no CSVs for {source}, run the generator first")
 
     table = f"raw.{source}"
     con.execute(f"DROP TABLE IF EXISTS {table}")

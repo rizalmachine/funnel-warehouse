@@ -2,7 +2,7 @@
 
 **Status:** accepted
 
-Two slowly-changing inputs are handled with two different mechanisms — the
+Two slowly-changing inputs are handled with two different mechanisms. The
 contrast is deliberate and interview-ready.
 
 ## Price book: effective-dated source (no snapshot)
@@ -27,7 +27,7 @@ validity windows.
 ## Lesson the demo taught (kept honest)
 
 The first cut derived `channel_key` from `(channel_name, channel_group)`.
-Running the remap demo then orphaned 3,858 historical fact rows — caught by
+Running the remap demo then orphaned 3,858 historical fact rows, caught by
 the `relationships` test, exactly as it should be. Surrogate keys must hang
 off the *stable identity* (`channel_name`); mutable attributes belong in the
 dimension/snapshot, never in the key.

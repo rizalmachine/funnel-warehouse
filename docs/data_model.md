@@ -27,7 +27,7 @@
 | `dim_channel` | conformed channel | `channel_key` | current view of SCD2 snapshot |
 | `snap_channel_mapping` | raw label × version | `channel_raw` + validity | **SCD2** (check strategy) |
 | `dim_member` | purchasing member | `member_key` | SCD1 |
-| `dim_date` | day | `date_day` | — |
+| `dim_date` | day | `date_day` | n/a |
 | `fct_funnel_daily` | lead-date × studio × channel | `funnel_row_key` | incremental, 7-day lookback |
 | `fct_revenue` | sale | `sale_id` | full rebuild (small) |
 | `fct_ad_spend` | day × conformed channel | (date_day, channel_key) | full rebuild |

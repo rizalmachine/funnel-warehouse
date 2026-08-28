@@ -21,5 +21,5 @@ Currency is fictional Rp. All metrics computed in `mart_executive_scorecard`.
 
 **Known limitation:** CAC numerator is paid spend but denominator includes
 organically-acquired members; a channel-level CAC (paid members only) is the
-documented next iteration — kept blended here to match how early-stage teams
+documented next iteration. Kept blended here to match how early-stage teams
 actually report it first.

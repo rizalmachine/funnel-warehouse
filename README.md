@@ -1,4 +1,4 @@
-# Funnel Warehouse — Dimensional Growth Analytics with dbt
+# Funnel Warehouse: Dimensional Growth Analytics with dbt
 
 Production-style analytics warehouse for **FitFlow Studios**, a fictional 12-studio fitness chain.
 Messy multi-studio operational CSVs → tested star schema → executive scorecard.
@@ -44,7 +44,7 @@ cd dbt && ../.venv/Scripts/dbt build --profiles-dir . && cd ..
 ## The story in the data
 
 A scripted anomaly: **Crestline city's paid-social lead quality collapses in Sep 2025**
-(lead→qualified 59% → 45%) while blended company averages barely move — the
+(lead→qualified 59% → 45%) while blended company averages barely move: the
 classic case for city × channel funnel marts over single-number dashboards.
 Open `dashboard/index.html` and look at the red line.
 
@@ -56,7 +56,7 @@ Open `dashboard/index.html` and look at the red line.
 
 Prints the snapshot history showing both versions with validity windows.
 Re-running `pipeline/load_raw.py` restores the source mapping; the next
-snapshot records the revert as a third version — SCD2 doing its job.
+snapshot records the revert as a third version, proof SCD2 is doing its job.
 
 ## Verified results (seed=42, 365 days)
 
@@ -79,7 +79,7 @@ tests/              generator invariant tests (pytest)
 
 ## Docs
 
-- [ADR-001 — Funnel stage definitions & PII boundary](docs/adr/001-funnel-stage-definitions.md)
-- [ADR-002 — Two SCD strategies, on purpose](docs/adr/002-scd-strategy.md)
-- [ADR-003 — DuckDB locally, BigQuery as prod path](docs/adr/003-duckdb-bigquery.md)
+- [ADR-001: Funnel stage definitions & PII boundary](docs/adr/001-funnel-stage-definitions.md)
+- [ADR-002: Two SCD strategies, on purpose](docs/adr/002-scd-strategy.md)
+- [ADR-003: DuckDB locally, BigQuery as prod path](docs/adr/003-duckdb-bigquery.md)
 - [Data model](docs/data_model.md) · [Metric definitions](docs/metric_definitions.md)

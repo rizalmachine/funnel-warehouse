@@ -1,7 +1,7 @@
 -- One row per membership sale, with the list price effective AT SALE TIME
 -- (point-in-time join against the effective-dated price book seed).
 -- discount_amount falling out negative would mean the join matched the
--- wrong price version — guarded by tests.
+-- wrong price version, guarded by tests.
 
 with sales as (
     select * from {{ ref('stg_sales') }}
